@@ -1,87 +1,68 @@
-# Online Beadwork Store “Flames of Darkness”
+# "ByteShop" Tech Online Store
+
+Report on practical works for the discipline **"Internet Technologies and Web Application Design"**.  
+**Created by:** Aleksandra Butko, 2nd-year student, group IS-44.  
+**Supervised by:** Svitlana Leonidivna Proskura, Senior Lecturer of the IST Department.  
+**National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"**  
+**Faculty of Informatics and Computer Science | Department of Information Systems and Technologies**
+
+---
 
 ## 📝 Project Overview
-**Flames of Darkness** is an e-commerce platform dedicated to showcasing and selling unique, handcrafted Ukrainian beadwork products. The platform expands the artisan's market reach, automates sales workflows, and promotes authentic handmade crafts internationally.
-
-### 🎯 Topic & Scope
-* **Tech Stack Focus:** HTML document tags, attributes, and structural semantic markup.
-* **Version Control:** GIT & GitHub workflow, working with repositories.
-* **Core Application:** Complete logic description of a personal web application.
+**"ByteShop"** is a modern e-commerce web application designed for selling digital devices and home appliances. The project covers the full development lifecycle: from business logic design and responsive layout implementation to creating a relational database, deploying a backend server, and integrating an authentication system with role-based access control.
 
 ---
 
-## 💡 System Analysis
-
-### Relevance of the Topic
-With the rapid growth of e-commerce, digital solutions for handmade and artisan sectors are highly sought after. Beadwork jewelry is increasingly popular among youth and collectors looking for unique pieces that emphasize individuality. 
-
-* **Object of the Work:** An e-commerce information system for selling beadwork products.
-* **Subject of the Work:** Software architecture managing sales, inventory, orders, and customer relationships.
-
-### Purpose & Objectives
-The primary goal is to simplify, digitalize, and accelerate the process of browsing, selecting, and ordering custom beadwork jewelry.
-
-* **Audience:** Analyze target market needs and demands.
-* **UI/UX:** Develop an intuitive, visually stunning interface.
-* **Catalog:** Implement a dynamic product display with images, specs, and pricing.
-* **Sales Pipeline:** Create an integrated shopping cart, checkout system, and secure order processing.
-* **Admin Ecosystem:** Build an administrative panel for seamless product and order management.
+## 💻 Tech Stack
+* **Frontend:** HTML5 (semantic markup), CSS3 (responsive design, Flexbox, `@media` queries), JavaScript (server integration, animations, carousel slider).
+* **Backend:** Node.js / Express (server-side runtime, REST API handling CRUD operations).
+* **Database:** Relational DB (designed according to the ER model, implementing tables, relations, and PK/FK constraints; tested via sample SELECT queries).
+* **Version Control:** Git & GitHub.
 
 ---
 
-## ⚙️ Business Logic & Operations
-* **Authentication:** Users must register or log in to complete a purchase or place a customized pre-order.
-* **Order Expiration:** Cart checkouts and unpaid orders expire automatically within **24 hours** of placement.
-* **Custom Logistics:** Customers can manually schedule the date/time of delivery and attach personalized production notes.
-* **Loyalty Program:** Automated discount engines applied for regular customers alongside active seasonal promo codes.
+## ⚙️ Business Logic & System Architecture
 
----
+### Features and Page Structure:
+1. **Home Page (`index.html`):**
+   * **Header:** Features the "BYTE SHOP" logo, a search field (`searchInput`), a responsive hamburger menu (optimized for screens under 900px), and quick navigation buttons ("Catalog", "Information", "Registration/Dashboard").
+   * **Main Content:** Includes a promotional block (image carousel/slider showcasing active deals across 24 slots), a responsive product category grid (Smartphones, Tablets, Headphones, Laptops, etc.), and an informative "About the Store" background section.
+   * **Footer:** Displays business contacts, store address (64/85 Petra Sahaidachnoho St.), an interactive map, and basic delivery parameters.
+2. **Category Page (`phone.html`, etc.):**
+   * **Left Block:** Dedicated search and filtration system (sorting by price, filtering by brands, colors, storage size, and stock availability built using `<fieldset>` and `<legend>` nodes).
+   * **Right Block:** A fluid grid canvas (`all-products`) rendering standalone product cards containing item titles, prices, and clickable image routes.
+3. **Product Page (`phoneP.html`):**
+   * **Deep-Dive Workspace:** Displays individual item details, media galleries, price points, and interactive parameter toggles (color variants, memory capacities). Includes technical specs, delivery routes, payment frameworks (featuring Monobank's "Purchase in Installments" integration), and warranty policies.
+4. **User Dashboard:**
+   * Divided into two specific operational blocks: "Personal Data" (Full Name, phone number, email, profile picture) and "Orders" (comprehensive log and archive of historical checkouts).
+5. **Authentication Workspace:**
+   * Input forms for user registration and system login to provision dashboard spaces.
 
-## 🗺️ Main Functionality & Architecture
-
-### 1. Home Page
-Serves as the main landing node containing three core semantic blocks:
-* **Header:** Global search bar, dynamic category routing, and user profile management (Login/Registration).
-* **Main Section:** 
-  * *Categories block* for intuitive store assortment exploration.
-  * *Product gallery carousel* to highlight trending designs.
-  * *Brand History section* focused on the shop's origin and individual artisans.
-* **Footer:** Operational contacts, corporate location, policy details, and social channels.
-
-### 2. Categories Page
-Triggers once a specific type of product is selected:
-* **Left Sidebar:** Search criteria, dynamic filtering (price, color, material type).
-* **Right Workspace:** Product display grid showcasing names, primary images, and prices.
-
-### 3. Product Page
-Displays deep-dive item characteristics:
-* Title, HD item gallery, description tab, technical dimensions, exact pricing, and available delivery lines.
-
-### 4. User Dashboard
-Personalized area separated into twin blocks:
-* **Personal Data:** Profile information editing (Name, phone, email, avatar).
-* **Order History:** Tracking system for active, pending, and past fulfillments.
+### Operational Business Rules:
+* Once an order invoice is initialized, checkout payments must be settled within **24 hours**.
+* Registered long-term buyers gain automatic access to a built-in loyalty program and active seasonal promotional codes via their account space.
 
 ---
 
 ## 📋 System Requirements
 
-### Functional Requirements
-1. Guest users can access and browse all catalog items, categories, and brand details without strict login.
-2. System includes authorization modules separating Guests, Users, and Administrators.
-3. Users can dynamically add, remove, and update quantities within the shopping cart.
-4. Checkout processes require explicit payment integration selection and final user confirmation.
-5. Administrators maintain absolute control over product metrics, active stocks, catalog statuses, and promotion panels.
+### Functional Requirements:
+* Guests can freely explore the landing pages, navigate product categories, and inspect comprehensive technical data tabs.
+* Standard users can register accounts, alter cart metrics, adjust shipping lines, select payment platforms, and verify checkouts.
+* Administrators rely on a dedicated dashboard to safely modify product catalogs, update physical stock counts, and supervise active accounts.
 
-### Non-Functional Requirements
-* **Scalability:** Built to support at least **1,000 concurrent users** seamlessly.
-* **Security:** Complete customer confidentiality via strict end-to-end data encryption and hashed user password storage.
-* **Responsiveness:** Fluid grid interface tailored for standard Desktops, Tablets, and Mobile screens.
+### Non-Functional Requirements:
+* **Performance:** Architected to handle a minimum threshold of **1,000 concurrent active users**.
+* **Security:** Strict data privacy rules enforced via structural end-to-end encryption alongside strictly hashed account password records.
+* **Responsiveness:** Interface scaling optimized across Desktop platforms and Mobile layouts driven by relative viewport sizing units and conditional media rules.
 
 ---
 
-## 👥 Use Case Architecture
+## 🛠️ Practical Works Breakdowns
 
-* **Administrator:** Manages internal stock availability, coordinates assortment variants, configures dynamic holiday campaigns, and monitors registered profiles.
-* **User (Guest):** Explores landing resources, triggers catalog search inquiries, and relies on multi-layer filtering tools.
-* **Registered User:** Keeps an individual account footprint, performs secure checkout flows, manages personal data, and contributes to product ratings/reviews.
+* **Practical Work 1:** Subject area modeling, target scope validation, creation of the core Use Case architecture, and initial ER diagram outlining entities.
+* **Practical Work 2:** Design and assembly of the responsive frontend components (`header`, `main`, `footer`, category flows, dynamic item filters) using semantic HTML5 and tailored CSS3 style sheets.
+* **Practical Work 3:** Implementation of administrative views and logic managing conditional interface states based on active clearance (Guest / Registered User / Admin).
+* **Practical Work 4:** Building core database structures (Buyer, Invoice, Row Item, Product, Warehouse, Stock Tracking) aligned with the target ER template. Enforcing table dependencies, index models, and cascade execution parameters (`ON DELETE/UPDATE`) alongside rigorous validation via advanced `SELECT` query scripts.
+* **Practical Work 5:** Setting up the server environment running on Node.js. Structuring full database connectivity and building a standard REST API implementing a complete CRUD matrix (`GET/READ`, `POST/CREATE`, `PUT/UPDATE`, `DELETE`) to wire frontend components.
+* **Practical Work 6:** Coding the system authentication layer, deploying the data schemas governing operational users and system access roles, and isolating secure API paths with fallback exception handling.
