@@ -31,7 +31,7 @@ connection.connect(err => {
 // =====================
 // Пошук продуктів
 // =====================
-app.get('/search', (req, res) => {
+app.get('/products', (req, res) => {
     const query = req.query.query || '';
     const sql = `
         SELECT * FROM Product 
